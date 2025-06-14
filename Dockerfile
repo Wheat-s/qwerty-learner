@@ -1,10 +1,11 @@
+
 FROM node:20 AS build
 
 # 设置工作目录
 WORKDIR /app
 
 COPY . .
-RUN npm config set registry  https://registry.npmmirror.com  
+# RUN npm config set registry  https://registry.npmmirror.com 
 RUN npm install
 RUN npm run build
 
@@ -12,3 +13,4 @@ RUN npm run build
 FROM nginx:alpine
 COPY ./public/default.conf /etc/nginx/conf.d/default.conf
 COPY --from=build /app/build /app
+

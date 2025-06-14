@@ -38,6 +38,7 @@ playwright-report
 # History files
 .history/
 
+
 # macOS specific
 .AppleDouble
 .LSOverride
